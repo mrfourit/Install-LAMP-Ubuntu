@@ -46,3 +46,11 @@
       allow from all
       Require all granted
     </Directory>
+
+9. Install letsencrypt
+    sudo add-apt-repository ppa:certbot/certbot
+    sudo apt install python-certbot-apache
+
+    sudo certbot --apache -d your_domain -d www.your_domain
+
+    0 0 1 * * certbot renew && service apache2 restart
