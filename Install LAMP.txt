@@ -28,27 +28,25 @@
     sudo systemctl restart apache2
 
     _-_-----------------------
-    cd /usr/sharehttps://files.phpmyadmin.net/phpMyAdmin/5.1.1/phpMyAdmin-5.1.1-all-languages.zip
+    cd /usr/share
     wget https://files.phpmyadmin.net/phpMyAdmin/5.1.1/phpMyAdmin-5.1.1-all-languages.zip
-    unzip MyAdmin-5.1.1-all-languages.zip
-    mv MyAdmin-5.1.1-all-languages.zip phpmyadmin
+    unzip phpMyAdmin-5.1.1-all-languages.zip
+    mv phpMyAdmin-5.1.1-all-languages.zip phpmyadmin
     sudo chmod -R 755 phpmyadmin
     nano /etc/apache2/sites-avaiable/000-default.conf
     Alias /phpmyadmin "/usr/share/phpmyadmin/"
-<Directory "/usr/share/phpmyadmin/">
-     Order allow,deny
-     Allow from all
-     Require all granted
-</Directory>
+    <Directory "/usr/share/phpmyadmin/">
+        Order allow,deny
+        Allow from all
+        Require all granted
+    </Directory>
     mv config.sample.inc.php config.inc.php
     nano config.inc.php
     $cfg['blowfish_secret'] = 'L.cWeE{beVu9}yHQuHz3ki5ysndddddl';
-
-$cfg['TempDir'] = "/usr/share/phpmyadmin/tmp/";
-mkdir tmp
-
-chmod 777 tmp
-sudo service apache2 restart
+    $cfg['TempDir'] = "/usr/share/phpmyadmin/tmp/";
+    mkdir tmp
+    chmod 777 tmp
+    sudo service apache2 restart
 6. Enable mode apache
 
     sudo a2enmod rewrite
