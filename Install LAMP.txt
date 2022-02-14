@@ -31,9 +31,9 @@
     cd /usr/share
     wget https://files.phpmyadmin.net/phpMyAdmin/5.1.1/phpMyAdmin-5.1.1-all-languages.zip
     unzip phpMyAdmin-5.1.1-all-languages.zip
-    mv phpMyAdmin-5.1.1-all-languages.zip phpmyadmin
+    mv phpMyAdmin-5.1.1-all-languages phpmyadmin
     sudo chmod -R 755 phpmyadmin
-    nano /etc/apache2/sites-avaiable/000-default.conf
+    sudo nano /etc/apache2/sites-available/000-default.conf
     Alias /phpmyadmin "/usr/share/phpmyadmin/"
     <Directory "/usr/share/phpmyadmin/">
         Order allow,deny
