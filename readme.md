@@ -1,10 +1,10 @@
 1. Install Mysql
     
-    apt-get install mysql-server
+    sudo apt-get install mysql-server
 
 2. Install Apache
 
-    apt-get install apache2
+    sudo apt-get install apache2
 
 3. Install PHP
 
@@ -40,6 +40,7 @@
         Allow from all
         Require all granted
     </Directory>
+    cd phpmyadmin
     mv config.sample.inc.php config.inc.php
     nano config.inc.php
     $cfg['blowfish_secret'] = 'L.cWeE{beVu9}yHQuHz3ki5ysndddddl';
@@ -47,6 +48,7 @@
     mkdir tmp
     chmod 777 tmp
     sudo service apache2 restart
+    
 6. Enable mode apache
 
     sudo a2enmod rewrite
