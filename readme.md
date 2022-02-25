@@ -27,6 +27,10 @@
 	```markdown
 	sudo apt install php7.1 libapache2-mod-php7.1 php7.1-common php7.1-mbstring php7.1-xmlrpc php7.1-soap php7.1-gd php7.1-xml php7.1-intl php7.1-mysql php7.1-cli php7.1-mcrypt php7.1-zip php7.1-curl
 	```
+	
+	```markdown
+	sudo apt install php7.4 libapache2-mod-php7.4 php7.4-common php7.4-mbstring php7.4-xmlrpc php7.4-soap php7.4-gd php7.4-xml php7.4-intl php7.4-mysql php7.4-cli php7.4-mcrypt php7.4-zip php7.4-curl
+	```
 
 4. Update password root mysql
 	```markdown
@@ -77,6 +81,10 @@
 		Allow from all
 		Require all granted
 	</Directory>
+	```
+
+	```markdown
+	cd phpmyadmin
 	```
 
 	```markdown
@@ -147,4 +155,33 @@
 
 	```markdown
 	0 0 1 * * certbot renew && service apache2 restart
+	```
+10. Set PHP version
+	```markdown
+	sudo update-alternatives --config php
+	```
+	```markdown
+	sudo a2dismod php7.1
+	```
+	```markdown
+	sudo a2enmod php7.4
+	```
+
+11. Open port oracle
+	```markdown
+	sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 80 -j ACCEPT
+	```
+	
+	```markdown
+	sudo netfilter-persistent save
+	```
+12. Mysql command
+	```markdown
+	CREATE USER 'root'@'localhost' IDENTIFIED BY 'password';
+	```
+	```markdown
+	GRANT ALL PRIVILEGES ON db.* TO 'root'@'%'  WITH GRANT OPTION;
+	```
+	```markdown
+	FLUSH PRIVILEGES;
 	```
