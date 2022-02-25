@@ -185,3 +185,46 @@
 	```markdown
 	FLUSH PRIVILEGES;
 	```
+14. Install FTP
+	```markdown
+	sudo apt-get install proftpd
+	```
+16. Config FTP
+ 	```markdown
+	useradd <username> -d /var/www/ -s /bin/false
+	```
+	```markdown
+	passwd <username>
+	```
+	```markdown
+	echo '/bin/false' | sudo tee -a /etc/shells > /dev/null
+	```
+	```markdown
+	sudo nano /etc/proftpd/proftpd.conf
+	```
+	```markdown
+	<Limit LOGIN>
+		AllowUser elinkgate
+		DenyALL
+	</Limit>
+	DefaultRoot <Source> elinkgate
+	<Directory source>
+		Umask 022 022
+		AllowOverwrite on
+		<Limit MKD STOR  XMKD RNRF RNTO RMD XRMD CWD>
+			DenyAll
+		</Limit>
+		<Limit STOR CWD MKD>
+			AllowAll
+		</Limit>
+	</Directory>
+	```
+	```markdown
+	sudo /etc/init.d/proftpd start
+	```
+	```markdown
+	sudo /etc/init.d/proftpd stop
+	```
+	```markdown
+	sudo /etc/init.d/proftpd restart
+	```
