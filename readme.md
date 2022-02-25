@@ -73,10 +73,10 @@
 	```markdown
 	Alias /phpmyadmin "/usr/share/phpmyadmin/"
 	<Directory "/usr/share/phpmyadmin/">
-        	Order allow,deny
-        	Allow from all
-        	Require all granted
-    	</Directory>
+		Order allow,deny
+		Allow from all
+		Require all granted
+	</Directory>
 	```
 
 	```markdown
@@ -84,27 +84,27 @@
 	```
 	
 	```markdown
-    	nano config.inc.php
+	nano config.inc.php
 	```
 	
 	```markdown
-    	$cfg['blowfish_secret'] = 'L.cWeE{beVu9}yHQuHz3ki5ysndddddl';
+	$cfg['blowfish_secret'] = 'L.cWeE{beVu9}yHQuHz3ki5ysndddddl';
 	```
 	
 	```markdown
-    	$cfg['TempDir'] = "/usr/share/phpmyadmin/tmp/";
+	$cfg['TempDir'] = "/usr/share/phpmyadmin/tmp/";
 	```
 	
 	```markdown
-    	mkdir tmp
+	mkdir tmp
 	```
 	
 	```markdown
-    	chmod 777 tmp
+	chmod 777 tmp
 	```
 	
 	```markdown
-    	sudo service apache2 restart
+	sudo service apache2 restart
 	```
 
 6. Enable mode apache
@@ -123,13 +123,13 @@
 
 8. Config vhost
 	```markdown
-	 <Directory /var/www/html>
-	      Options Indexes FollowSymLinks MultiViews
-	      AllowOverride All
-	      Order allow,deny
-	      allow from all
-	      Require all granted
-    	</Directory>
+	<Directory /var/www/html>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride All
+		Order allow,deny
+		allow from all
+		Require all granted
+	</Directory>
 	```
 
 9. Install letsencrypt
