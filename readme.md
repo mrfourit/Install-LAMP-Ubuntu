@@ -189,7 +189,7 @@
 	```markdown
 	sudo apt-get install proftpd
 	```
-16. Config FTP
+15. Config FTP
  	```markdown
 	useradd <username> -d /var/www/ -s /bin/false
 	```
@@ -227,4 +227,41 @@
 	```
 	```markdown
 	sudo /etc/init.d/proftpd restart
+	```
+16. Install Swap
+	```markdown
+	swapon --show
+	```
+	```markdown
+	sudo fallocate -l 2G /swapfile
+	```
+	```markdown
+	ls -lh /swapfile
+	```
+	```markdown
+	sudo chmod 600 /swapfile
+	```
+	```markdown
+	sudo mkswap /swapfile
+	```
+	```markdown
+	sudo swapon /swapfile
+	```
+	```markdown
+	sudo swapon --show
+	```
+	```markdown
+	echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+	```
+	```markdown
+	sudo sysctl vm.swappiness=10
+	```
+	```markdown
+	sudo sysctl vm.vfs_cache_pressure=50
+	```
+	```markdown
+	echo 'vm.swappiness=10' | sudo tee -a /etc/sysctl.conf
+	```
+	```markdown
+	echo 'vm.vfs_cache_pressure=50' | sudo tee -a /etc/sysctl.conf
 	```
