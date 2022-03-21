@@ -265,3 +265,36 @@
 	```markdown
 	echo 'vm.vfs_cache_pressure=50' | sudo tee -a /etc/sysctl.conf
 	```
+17. Install Ioncube
+	```markdown
+	cd /tmp
+	```
+	-------------------- For 64-bit System --------------------
+	```markdown
+	wget https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz
+	```
+	-------------------- For 32-bit System --------------------
+	```markdown
+	wget https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86.tar.gz
+	```
+	```markdown
+	tar -zxvf ioncube_loaders_lin_x86*
+	```
+	```markdown
+	cd ioncube/
+	```
+	```markdown
+	php -i | grep extension_dir
+	```
+	```markdown
+	sudo cp /tmp/ioncube/ioncube_loader_lin_7.0.so [extension_dir]
+	```
+	```markdown
+	sudo nano /etc/php/[php_version]/cli/php.ini
+	```
+	```markdown
+	zend_extension = [extension_dir]/ioncube_loader_lin_7.0.so
+	```
+	```markdown
+	sudo service apache2 restart
+	```
