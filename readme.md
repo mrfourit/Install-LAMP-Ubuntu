@@ -298,3 +298,10 @@
 	```markdown
 	sudo service apache2 restart
 	```
+17. Install Imagick
+	```markdown
+	sudo apt install imagemagick
+	```
+	```markdown
+	sudo apt install php7.4-imagick
+	```
