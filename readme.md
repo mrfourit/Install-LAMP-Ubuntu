@@ -305,3 +305,10 @@
 	```markdown
 	sudo apt install php7.4-imagick
 	```
+ 19. Xóa log mysql
+	```markdown
+	SHOW MASTER STATUS;
+	```
+	```markdown
+	Xóa log trừ file log đang chạy: PURGE BINARY LOGS TO 'binlog.006080';
+	```
